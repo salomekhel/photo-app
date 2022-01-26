@@ -1,0 +1,24 @@
+
+<div class = "recommendations">
+    <div id = "bigUser"> 
+        <img src="{{ user.get('profile_url') }}" alt="profile pic for {{ user.get('profile_url') }} " class="profile" style = "width:50px"> 
+        <div class = "rec">
+            <span id= "username">{{ user.get('username') }}</span>
+        </div>
+    </div>
+
+    <div>
+        <span span id="sfy">suggestions for you</span>
+    
+    </div>
+    {% for suggestion in suggestions%}
+    <div id = "box"> 
+        <img src="{{suggestion.profile_url }}" alt="profile" class="profile" style = "width:50px"> 
+        <div class = "rec">
+            <span id= "username">{{ suggestion.get('username')}}</span>
+            <span span id="sug">suggested for you</span>
+        </div>
+        <span><a href = "" target = "_blank"> follow </a></span>
+    </div>
+    {% endfor %}
+</div>
