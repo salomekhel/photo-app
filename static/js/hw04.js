@@ -320,6 +320,7 @@ const Text = (elem, postId, text) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -400,6 +401,7 @@ const bk = (postId, elem) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -418,6 +420,7 @@ const  unbk = (postId, bkmarkId, elem) => {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
         }
     })
     .then(response => response.json())
@@ -468,6 +471,7 @@ const likePost = (postId, elem) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -487,6 +491,7 @@ const unLikePost = (postId, likeId, elem) => {
         headers: {
             
             'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': getCookie('csrf_access_token')
         }
     })
     .then(response => response.json())
@@ -521,6 +526,7 @@ const followUser = (userId, elem) => {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': getCookie('csrf_access_token')
             },
             body: JSON.stringify(postData)
         })
@@ -534,6 +540,9 @@ const followUser = (userId, elem) => {
             elem.setAttribute('aria-label', 'unfollow');
         });
 }
+
+
+
 // Unfollow fetch function
 const unfollowUser = (followingId, elem) => {
     const deleteURL = `http://localhost:5000/api/following/${followingId}`
